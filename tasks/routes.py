@@ -4,7 +4,7 @@ from tasks.forms import TaskForm, ProcessTaskForm
 from datetime import date
 import sqlite3
 
-BASE_DATOS = './data/tasks.db'
+BASE_DATOS = './data/{}'.format(app.config('DB_FILE'))
 cabecera = ['title', 'description', 'date']
 
 def dict_factory(cursor, row):
