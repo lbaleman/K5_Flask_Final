@@ -37,9 +37,11 @@ def dbQuery(consulta, *args):
 def index():
     registros = dbQuery('SELECT titulo, descripción, date, id FROM tareas;')
     
-    if isinstance(registros, dict):
-        registros = [registros] #Para guardar cada linea en una tupla distinta. Importante este paso.
-    
+    if registros:
+        if isinstance(registros, dict):
+            registros = [registros] #Para guardar cada linea en una tupla distinta. Importante este paso.
+    else:
+        registros = []
 
 
     return render_template("index.html", registros=registros)
